@@ -1,5 +1,7 @@
 # GraphQL Contract Test
 
+[![npm version](https://badge.fury.io/js/graphql-contract-test.svg)](https://badge.fury.io/js/graphql-contract-test)
+
 Consumer driven contract testing for GraphQL APIs.
 
 ## Usage
