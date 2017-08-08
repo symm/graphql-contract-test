@@ -12,7 +12,7 @@
     "build": "babel src/index.js --out-file dist/index.js",
     "dev": "babel src/index.js --out-file dist/index.js --watch",
     "prepublish": "npm run build && chmod +x dist/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -21,12 +21,12 @@
   "author": "Gareth Jones <me@gazj.co.uk>",
   "license": "MIT",
   "dependencies": {
+    "babel-runtime": "^6.23.0",
     "chalk": "^1.1.3",
     "cli-table": "^0.3.1",
     "graphql": "^0.10.1",
     "minimist": "^1.2.0",
-    "node-fetch": "^1.7.1",
-    "babel-runtime": "^6.23.0"
+    "node-fetch": "^1.7.1"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -40,6 +40,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "eslint": "^3.19.0",
     "eslint-config-airbnb-base": "^11.2.0",
-    "eslint-plugin-import": "^2.3.0"
+    "eslint-plugin-import": "^2.3.0",
+    "jest": "^20.0.4"
   }
 }

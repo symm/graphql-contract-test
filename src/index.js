@@ -11,6 +11,9 @@ import minimist from 'minimist';
 import chalk from 'chalk';
 import fs from 'fs';
 
+const transformChangeType = require('./transform-change-type');
+const transformChangeDescription = require('./transform-change-description');
+
 const usage = '  Usage: graphql-contract-test ENDPOINT_URL <client_schema_file>';
 const error = chalk.bold.red;
 const success = chalk.bold.green;
@@ -65,11 +68,11 @@ async function main() {
   console.log(`💩  ${error('Breaking changes were detected\n')}`);
 
   const table = new Table({
-    head: ['Change Type', 'Description'],
+    head: ['Issue', 'Description'],
   });
 
   breakingChanges.forEach((change) => {
-    table.push([change.type, change.description]);
+    table.push([transformChangeType(change.type), transformChangeDescription(change.description)]);
   });
 
   console.log(table.toString());
