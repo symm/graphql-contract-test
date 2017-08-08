@@ -12,6 +12,6 @@ export const BreakingChangeMapping = {
 };
 
 function transformChangeType(message) {
-  return BreakingChangeMapping[message]
+  return BreakingChangeMapping[message];
 }
 module.exports = transformChangeType;
