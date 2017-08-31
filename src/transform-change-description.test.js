@@ -1,0 +1,50 @@
+const transformChangeDescription = require('./transform-change-description')
+
+test('Transforms breaking change descriptions', () => {
+  expect(transformChangeDescription('Shift.thing was removed.')).toBe('Shift.thing is not present.')
+
+  expect(transformChangeDescription('Shift.end changed type from Int to String.')).toBe('Shift.end expected Int but got String.')
+
+  // TODO:
+  // 'Type1 was removed.',
+  // 'Type1 changed from an Interface type to a Union type.',
+  // 'Type1.field2 was removed.',
+  // 'Type1.field3 changed type from String to Boolean.',
+  // 'Type1.field4 changed type from TypeA to TypeB.',
+  // 'Type1.field6 changed type from String to [String].',
+  // 'Type1.field7 changed type from [String] to String.',
+  // 'Type1.field9 changed type from Int! to Int.',
+  // 'Type1.field10 changed type from [Int]! to [Int].',
+  // 'Type1.field11 changed type from Int to [Int]!.',
+  // 'Type1.field13 changed type from [Int!] to [Int].',
+  // 'Type1.field14 changed type from [Int] to [[Int]].',
+  // 'Type1.field15 changed type from [[Int]] to [Int].',
+  // 'Type1.field16 changed type from Int! to [Int]!.',
+  // 'Type1.field18 changed type from [[Int!]!] to [[Int!]].',
+  // 'InputType1.field1 changed type from String to Int.',
+  // 'InputType1.field2 was removed.',
+  // 'InputType1.field3 changed type from [String] to String.',
+  // 'InputType1.field5 changed type from String to String!.',
+  // 'A non-null field requiredField on input type InputType1 was added.',
+  // 'Type2 was removed from union type UnionType1.',
+  // 'VALUE1 was removed from enum type EnumType1.',
+  // 'Type1.field1 arg name was removed',
+  // 'Interface1.field1 arg arg1 was removed',
+  // 'Interface1.field1 arg objectArg was removed',
+  // 'Type1.field1 arg arg1 has changed type from String to Int',
+  // 'A non-null arg newRequiredArg on Type1.field1 was added',
+  // 'Type1 no longer implements interface Interface1.',
+  // 'TypeThatGetsRemoved was removed.',
+  // 'TypeInUnion2 was removed.',
+  // 'Int was removed.',
+  // 'TypeThatChangesType changed from an Object type to an Interface type.',
+  // 'TypeThatHasBreakingFieldChanges.field1 was removed.',
+  // 'TypeThatHasBreakingFieldChanges.field2 changed type from String to Boolean.',
+  // 'TypeInUnion2 was removed from union type UnionTypeThatLosesAType.',
+  // 'VALUE0 was removed from enum type EnumTypeThatLosesAValue.',
+  // 'ArgThatChanges.field1 type from Int to String',
+  // 'Type1.field1 arg name has changed defaultValue',
+  // 'VALUE2 was added to enum type EnumType1.',
+  // 'Type1.field1 arg name has changed defaultValue',
+  // 'VALUE2 was added to enum type EnumType1.',
+})
