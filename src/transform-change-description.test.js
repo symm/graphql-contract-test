@@ -5,6 +5,7 @@ test('Transforms breaking change descriptions', () => {
 
   expect(transformChangeDescription('Shift.end changed type from Int to String.')).toBe('Shift.end expected Int but got String.');
 
+  // TODO:
   // 'Type1 was removed.',
   // 'Type1 changed from an Interface type to a Union type.',
   // 'Type1.field2 was removed.',
