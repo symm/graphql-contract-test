@@ -8,5 +8,8 @@ module.exports = {
         "import/named": "error",
         "import/default": "error",
         "import/prefer-default-export": "off"
-    }
+    },
+    "env": {
+    "jest": true
+  }
 };
