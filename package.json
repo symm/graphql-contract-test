@@ -21,6 +21,7 @@
   "author": "Gareth Jones <me@gazj.co.uk>",
   "license": "MIT",
   "dependencies": {
+    "babel-jest": "^21.0.0",
     "babel-runtime": "^6.23.0",
     "chalk": "^1.1.3",
     "cli-table": "^0.3.1",

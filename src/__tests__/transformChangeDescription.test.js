@@ -1,9 +1,9 @@
 import transformChangeDescription from '../transformChangeDescription';
 
 test('Transforms breaking change descriptions', () => {
-  expect(transformChangeDescription('Shift.thing was removed.')).toBe('Shift.thing is not present.')
+  expect(transformChangeDescription('Shift.thing was removed.')).toBe('Shift.thing is not present.');
 
-  expect(transformChangeDescription('Shift.end changed type from Int to String.')).toBe('Shift.end expected Int but got String.')
+  expect(transformChangeDescription('Shift.end changed type from Int to String.')).toBe('Shift.end expected Int but got String.');
 
   // TODO:
   // 'Type1 was removed.',
@@ -47,4 +47,4 @@ test('Transforms breaking change descriptions', () => {
   // 'VALUE2 was added to enum type EnumType1.',
   // 'Type1.field1 arg name has changed defaultValue',
   // 'VALUE2 was added to enum type EnumType1.',
-})
+});
