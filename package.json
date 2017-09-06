@@ -11,7 +11,7 @@
     "lint:js": "eslint \"src/*.js\"",
     "build": "babel src --out-dir dist",
     "dev": "babel src/index.js --out-file dist/index.js --watch",
-    "prepublish": "npm run build && chmod +x dist/index.js",
+    "prepare": "npm run build && chmod +x dist/index.js",
     "test": "jest"
   },
   "repository": {
