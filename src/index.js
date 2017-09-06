@@ -11,8 +11,8 @@ import minimist from 'minimist';
 import chalk from 'chalk';
 import fs from 'fs';
 
-const transformChangeType = require('./transform-change-type');
-const transformChangeDescription = require('./transform-change-description');
+import transformChangeType from './transformChangeType';
+import transformChangeDescription from './transformChangeDescription';
 
 const usage = '  Usage: graphql-contract-test ENDPOINT_URL <client_schema_file>';
 const error = chalk.bold.red;

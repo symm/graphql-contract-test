@@ -15,4 +15,4 @@ function transformChangeType(message) {
   return BreakingChangeMapping[message];
 }
 
-module.exports = transformChangeType;
+export default transformChangeType;

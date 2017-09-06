@@ -1,4 +1,4 @@
-const transformChangeDescription = require('./transform-change-description')
+import transformChangeDescription from '../transformChangeDescription';
 
 test('Transforms breaking change descriptions', () => {
   expect(transformChangeDescription('Shift.thing was removed.')).toBe('Shift.thing is not present.')

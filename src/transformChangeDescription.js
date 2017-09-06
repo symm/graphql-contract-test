@@ -9,4 +9,4 @@ function transformChangeDescription(message) {
   return transformed;
 }
 
-module.exports = transformChangeDescription;
+export default transformChangeDescription;
