@@ -9,7 +9,7 @@
   "description": "Contract test GraphQL endpoint using a Schema file",
   "scripts": {
     "lint:js": "eslint \"src/*.js\"",
-    "build": "babel src/index.js --out-file dist/index.js",
+    "build": "babel src --out-file dist/index.js",
     "dev": "babel src/index.js --out-file dist/index.js --watch",
     "prepublish": "npm run build && chmod +x dist/index.js",
     "test": "jest"

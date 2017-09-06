@@ -1,9 +1,12 @@
 {
-  "presets": ["latest"],
-  "plugins": [
-    ["transform-runtime", {
-      "polyfill": false,
-      "regenerator": true
-    }]
+    "presets": ["latest"],
+    "plugins": [
+        ["transform-runtime", {
+            "polyfill": false,
+            "regenerator": true
+        }]
+    ],
+    "ignore": [
+        "**/*.test.js"
     ]
 }
