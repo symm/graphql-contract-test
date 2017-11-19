@@ -5,7 +5,7 @@
     "README.md",
     "dist/"
   ],
-  "version": "0.0.6",
+  "version": "0.0.8",
   "description": "Contract test GraphQL endpoint using a Schema file",
   "scripts": {
     "build": "tsc",
