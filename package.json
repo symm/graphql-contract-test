@@ -10,7 +10,7 @@
   "scripts": {
     "build": "tsc",
     "prepublish": "npm run build && chmod +x dist/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -31,6 +31,7 @@
     "node-fetch": "^1.6.3"
   },
   "devDependencies": {
+    "jest": "^21.2.1",
     "typescript": "^2.1.5"
   }
 }
