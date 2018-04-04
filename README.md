@@ -22,8 +22,15 @@ Where `client-schema.graphql` contains the schema you expect the server to imple
 
 An [introspection query](http://graphql.org/learn/introspection/) will be made against the API, any breaking changes will be reported
 
+## Docker Image
 
-## Further Reading
+Place your `schema.graphqls` file in the current working directory then exec:
 
-* [Consumer-Driven Contracts: A Service Evolution Pattern](https://www.martinfowler.com/articles/consumerDrivenContracts.html)
-* [Tech Radar Consumer-driven contract testing](https://www.thoughtworks.com/radar/techniques/consumer-driven-contract-testing)
+```
+docker run \
+    --rm \
+    -t \
+    -v $(PWD)/schema.graphqls:/schema.graphqls \
+    symm/graphql-contract-test:latest \
+    https://your-api-here /schema.graphqls
+```
