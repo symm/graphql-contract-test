@@ -3,7 +3,7 @@
   "bin": "dist/index.js",
   "files": [
     "README.md",
-    "dist/"
+    "dist"
   ],
   "version": "0.0.9",
   "description": "Contract test GraphQL endpoint using a Schema file",
