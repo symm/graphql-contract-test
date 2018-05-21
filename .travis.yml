@@ -1,6 +1,14 @@
 language: node_js
 node_js:
-    - "6"
+- '6'
 cache:
   directories:
-    - "node_modules"
+  - node_modules
+deploy:
+  provider: npm
+  email: me@gazj.co.uk
+  api_key:
+    secure: i8pGSiNS2VIY1y08DYjdk7/pueie700fRWE7SvkJO4JfzA5DNm9GQKpKXXVlqmZg5s3yK8tHWsCwMjh2H/fBqek+KnmQofFXglqPOn9AAm/OsnnMJL7AT9PNNtkWCN5auU/Q9ne9u0XAGAKEhbA1QU/rUnSMlwY7fzqqbBAn0o4I8g+1GaFLl8qz6dAQ/Jywnex+FUAT4CkfIU/JABe18aX7kInl7sdetvEka2DvFlykJbEAKFJ8GvWZfNv0tKvPQxQv3omWLRlpks7PzqotKb09R21za9XyWK7WdKjO4tCkYnx/oWuWDxN/Zjj6HLeFrv8SaveByAI58eeeyQDf3UUVa9P+pyh1TtGEAgX+H8wiOB1FL4MpNhMZU0GdivaXgxGerJ3opnUURoSWlRRauliCaf/W5cj5PT4tJt596fIh1CUca1jpzBChwnNwGCYe9PX1Lb8d85jZZn1//Rksdu5XUwOg/wagyMAw7kvQCyYQMwnxExK5x5b95v4XL4yltyyoJFpduUi2q9Y5kEzItbHjc8ku3SDSKFrjpnk/O7SyvfP0u9gGrhaPrSdcxU/XXqB7JrCrVxLms0/r4S9X9iCQc5Y776Yribs3nigb8tr00pp0jdAejFDF4Nkw4/ehczBSmZd7eB23EKPyC2AqnwT7+4pCE190sssswcMl3wA=
+  on:
+    tags: true
+    repo: symm/graphql-contract-test
