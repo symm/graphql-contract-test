@@ -5,10 +5,11 @@
     "README.md",
     "dist"
   ],
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Contract test GraphQL endpoint using a Schema file",
   "scripts": {
     "build": "tsc",
+    "watch": "tsc -w",
     "prepublish": "npm run build && chmod +x dist/index.js",
     "test": "jest"
   },

@@ -1,4 +1,4 @@
-export function transformChangeDescription(message) {
+export function transformChangeDescription(message: string): string {
     let transformed = message.replace(' was removed.', ' is not present.');
 
     transformed = transformed.replace(

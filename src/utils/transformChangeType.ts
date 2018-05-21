@@ -11,6 +11,6 @@ export const BreakingChangeMapping = {
     ARG_DEFAULT_VALUE_CHANGE: 'Argument default value does not match',
 };
 
-export function transformChangeType(message) {
+export function transformChangeType(message: string): string {
     return BreakingChangeMapping[message];
 }

@@ -7,10 +7,10 @@ import * as minimist from 'minimist'
 import * as chalk from 'chalk'
 import * as fs from "fs";
 import {buildSchema, GraphQLSchema} from "graphql";
-import {findBreakingChanges} from "graphql/utilities";
+import {findBreakingChanges, BreakingChange} from "graphql/utilities";
 import {transformChangeType} from "./utils/transformChangeType";
 import {transformChangeDescription} from "./utils/transformChangeDescription";
-import Table = require('cli-table2')
+import * as CliTable2 from "cli-table2";
 
 const {version, name} = require('../package.json');
 
@@ -22,13 +22,14 @@ const usage = `
   Usage: graphql-contract-test ENDPOINT_URL client_schema_file
 
   Options:
-    --header, -h    Add a custom header (ex. 'Authorization=Bearer ...'), can be used multiple times
+    --header, -h         Add a custom header (ex. 'Authorization=Bearer ...'), can be used multiple times
+    --ignore-directives  Exclude directive changes from the comparison
 `;
 
 const intro = `  GraphQL Contract Test v${version}
 `;
 
-async function main() {
+async function main(): Promise<void> {
     console.log(intro);
 
     const argv = minimist(process.argv.slice(2));
@@ -42,10 +43,16 @@ async function main() {
     const contractFile = argv._[1];
     const headers = parseHeaderOptions(argv);
 
+
     const implementation = await getImplementedSchema(endpoint, headers);
     const contract = getContractSchema(contractFile);
 
-    const breakingChanges = findBreakingChanges(contract, implementation);
+    let breakingChanges = findBreakingChanges(contract, implementation);
+
+    if (argv['ignore-directives']) {
+        console.log('  ❗️  Ignoring directive differences')
+        breakingChanges = breakingChanges.filter(breakingChange => breakingChange.type != "DIRECTIVE_REMOVED");
+    }
 
     if (breakingChanges.length === 0) {
         console.log(chalk.bold.green('  ✨  The server appears to implement the schema you provided'));
@@ -60,8 +67,8 @@ async function main() {
     process.exit(1)
 }
 
-function buildResultsTable(breakingChanges): Table {
-    const table = new Table({
+function buildResultsTable(breakingChanges: Array<BreakingChange>) {
+    const table = new CliTable2({
         head: ['Issue', 'Description'],
     });
 
@@ -72,19 +79,19 @@ function buildResultsTable(breakingChanges): Table {
     return table
 }
 
-function getContractSchema(expectedSchemaFile): GraphQLSchema
+function getContractSchema(expectedSchemaFile: string): GraphQLSchema
 {
     const data = fs.readFileSync(expectedSchemaFile, 'utf8');
 
     return buildSchema(data)
 }
 
-async function getImplementedSchema(endpoint, headers): Promise<GraphQLSchema>
+async function getImplementedSchema(endpoint: string, headers: Array<string>): Promise<GraphQLSchema>
 {
     const response = await fetch(endpoint, {
-    method: 'POST',
-    headers: headers,
-    body: JSON.stringify({query: introspectionQuery}),
+        method: 'POST',
+        headers: headers,
+        body: JSON.stringify({query: introspectionQuery}),
     });
 
     const {data, errors} = await response.json();
@@ -96,7 +103,7 @@ async function getImplementedSchema(endpoint, headers): Promise<GraphQLSchema>
     return buildClientSchema(data);
 }
 
-function parseHeaderOptions(argv) {
+function parseHeaderOptions(argv: minimist.ParsedArgs) {
     const defaultHeaders = {
         'Content-Type': 'application/json',
         'User-Agent': `${name} v${version}`
@@ -104,14 +111,14 @@ function parseHeaderOptions(argv) {
 
     return toArray(argv['header'])
         .concat(toArray(argv['h']))
-        .reduce((obj, header: string) => {
+        .reduce((obj, header: string) => {          
             const [key, value] = header.split('=');
             obj[key] = value;
             return obj
         }, defaultHeaders);
 }
 
-function toArray(value = []) {
+function toArray(value = []): Array<any> {
     return Array.isArray(value) ? value : [value]
 }
 
