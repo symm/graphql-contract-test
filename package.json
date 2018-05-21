@@ -21,11 +21,6 @@
   "author": "Gareth Jones <me@gazj.co.uk>",
   "license": "MIT",
   "dependencies": {
-    "@types/chalk": "^0.4.31",
-    "@types/graphql": "^0.13.0",
-    "@types/minimist": "^1.2.0",
-    "@types/node": "^7.0.59",
-    "@types/node-fetch": "^1.6.8",
     "chalk": "^1.1.3",
     "cli-table2": "^0.2.0",
     "graphql": "^0.13.0",
@@ -34,6 +29,11 @@
   },
   "devDependencies": {
     "@types/jest": "^22.2.3",
+    "@types/chalk": "^0.4.31",
+    "@types/graphql": "^0.13.0",
+    "@types/minimist": "^1.2.0",
+    "@types/node": "^7.0.59",
+    "@types/node-fetch": "^1.6.8",
     "jest": "^21.2.1",
     "ts-jest": "^22.4.6",
     "typescript": "^2.8.1"
