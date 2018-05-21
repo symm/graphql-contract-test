@@ -10,6 +10,7 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
+    "lint": "tslint -c tslint.json 'src/**/*.ts'",
     "prepublish": "npm run build && chmod +x dist/index.js",
     "test": "jest",
     "test:watch": "jest --watch"
