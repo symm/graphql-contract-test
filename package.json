@@ -11,7 +11,8 @@
     "build": "tsc",
     "watch": "tsc -w",
     "prepublish": "npm run build && chmod +x dist/index.js",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "repository": {
     "type": "git",
@@ -32,7 +33,9 @@
     "node-fetch": "^1.6.3"
   },
   "devDependencies": {
+    "@types/jest": "^22.2.3",
     "jest": "^21.2.1",
+    "ts-jest": "^22.4.6",
     "typescript": "^2.8.1"
   }
 }
