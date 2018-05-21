@@ -20,7 +20,8 @@ import {transformChangeType} from "./utils/transformChangeType"
 
 import * as CliTable2 from "cli-table2"
 
-import { name, version } from "../package.json"
+const name = "graphql-contract-test"
+const version = "0.0.10"
 
 const usage = `
   ${chalk.bold(
