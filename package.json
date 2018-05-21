@@ -5,12 +5,15 @@
     "README.md",
     "dist"
   ],
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Contract test GraphQL endpoint using a Schema file",
   "scripts": {
     "build": "tsc",
+    "watch": "tsc -w",
+    "lint": "tslint -c tslint.json 'src/**/*.ts'",
     "prepublish": "npm run build && chmod +x dist/index.js",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "repository": {
     "type": "git",
@@ -19,11 +22,6 @@
   "author": "Gareth Jones <me@gazj.co.uk>",
   "license": "MIT",
   "dependencies": {
-    "@types/chalk": "^0.4.31",
-    "@types/graphql": "^0.13.0",
-    "@types/minimist": "^1.2.0",
-    "@types/node": "^7.0.59",
-    "@types/node-fetch": "^1.6.8",
     "chalk": "^1.1.3",
     "cli-table2": "^0.2.0",
     "graphql": "^0.13.0",
@@ -31,7 +29,15 @@
     "node-fetch": "^1.6.3"
   },
   "devDependencies": {
+    "@types/chalk": "^0.4.31",
+    "@types/graphql": "^0.13.0",
+    "@types/jest": "^22.2.3",
+    "@types/minimist": "^1.2.0",
+    "@types/node": "^7.0.59",
+    "@types/node-fetch": "^1.6.8",
     "jest": "^21.2.1",
+    "ts-jest": "^22.4.6",
+    "tslint": "^5.10.0",
     "typescript": "^2.8.1"
   }
 }

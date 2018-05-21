@@ -7,7 +7,7 @@ Consumer driven contract testing for GraphQL APIs.
 ## Usage
 
 ```
-  GraphQL Contract Test v0.0.8
+  GraphQL Contract Test v0.0.10
 
 
   Check if the remote server fulfills the supplied GraphQL contract file
@@ -15,7 +15,8 @@ Consumer driven contract testing for GraphQL APIs.
   Usage: graphql-contract-test ENDPOINT_URL client_schema_file
 
   Options:
-    --header, -h    Add a custom header (ex. 'Authorization=Bearer ...'), can be used multiple times
+    --header, -h         Add a custom header (ex. 'Authorization=Bearer ...'), can be used multiple times
+    --ignore-directives  Exclude directive changes from the comparison
 ```
 
 Where `client-schema.graphql` contains the schema you expect the server to implement.
