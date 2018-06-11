@@ -18,7 +18,7 @@ import * as minimist from "minimist"
 import {transformChangeDescription} from "./utils/transformChangeDescription"
 import {transformChangeType} from "./utils/transformChangeType"
 
-import * as CliTable2 from "cli-table2"
+import * as CliTable2 from "cli-table3"
 
 const name = "graphql-contract-test"
 const version = "0.0.10"
